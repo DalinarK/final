@@ -6,7 +6,9 @@
 	$hatred = NULL;
 
 	$test = array();
-	$user = "ken";
+	$user =  "ken"; //$_POST["username"];
+	//echo $user
+
 
 
 	// get current hates
@@ -47,7 +49,7 @@
 
 	$test = json_decode($hatredJSON); 
 
-	echo ($test['0']);
+	//echo ($test['0']);
 	
 	array_push($test, "awerw");
 
@@ -55,10 +57,6 @@
 	$toDB = json_encode($test);
 	
 	echo ($toDB);
-
-
-
-
 
 	//update the hate list
 	$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");

@@ -7,42 +7,33 @@ function mainTind() {
 		// dislike callback
 	    onDislike: function (item) {
 		    // set the status text
-	        $('#status').html('Dislike image ' + (item.index()+1));
-
-	            var userData;
-			    var count = 0
-
-			    var user = $("#feedBackArea").val();
-				echo (user);
-
-				var userInfo = {"username": user, "password": pass};
-			  
-				$.post( 
-					"updateHates.php",
-					userInfo,
-					function(info, userData){
-						userData = $.parseJSON(info);
-						$("#feedBackArea").empty();
-						if (userData != null)
-						{
-							  for(var i = 0 ; i < userData.length; i++) 
-								{
-  
-								}
-
-			                    go();
-			                    mainTind();
-						}
-						else
-						{
-							$("#feedBackArea").html("failed auth!");
-						}									
-					}
-				);
 	    },
 		// like callback
 	    onLike: function (item) {
-		    // set the status text
+	    var userData;
+	    var count = 0
+
+	    var user = $("#userID").val();
+
+		var userInfo = {"username": user};
+	  	$("#feedBackArea").empty();
+		$.post( 
+			"updateHates.php",
+			userInfo,
+			function(info){
+				//userData = $.parseJSON(info);
+				if (info != null)
+				{
+					$("#feedBackArea").html(info);
+				}
+				else
+				{
+
+					$("#feedBackArea").html("failed auth!");
+				}									
+			}
+		);
+
 	    },
 		animationRevertSpeed: 200,
 		animationSpeed: 400,

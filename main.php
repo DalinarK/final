@@ -43,8 +43,7 @@
                         
 					}
                     
-                    go();
-                                
+                    go();        
                     transform();
                     mainTind();
 			}
@@ -79,8 +78,8 @@
         <a href="" class="dislike"><i></i></a>
         <a href="" class="like"><i></i></a>
     </div>
-
-    <div id = "feedBackArea" value = <?php echo ($_SESSION['username'])?> >this is the feedback area</div>
+    <div id = "feedBackArea">This is the feedback area</div>
+    <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></div>
 
     <!-- jTinder status text  -->
     <div id="status"></div>
