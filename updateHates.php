@@ -50,7 +50,7 @@
 
 	//echo ($test['0']);
 	
-	array_push($test, "awerw");
+	array_push($test, $hate);
 
 
 	$toDB = json_encode($test);
