@@ -2,20 +2,36 @@
  * jTinder initialization
  */
 
-function mainTind() {
+function mainTind(usernames) {
+
+	//used to keep track of what user is being liked or disliked in the array that usernames array
+	var slideNum = usernames.length -1;
+
+
 	$("#tinderslide").jTinder({
 		// dislike callback
 	    onDislike: function (item) {
 		    // set the status text
+		    slideNum -= 1;
 	    },
 		// like callback
 	    onLike: function (item) {
+
+	
+	    var hate = usernames[slideNum];
+	    console.log(hate);
+	    slideNum -= 1;
+
+
+	   // $('#userLog').html('Like image ' + (item.index()+1));
+
 	    var userData;
 	    var count = 0
 
-	    var user = $("#userID").val();
+	    var user = usernames['0'];
 
-		var userInfo = {"username": user};
+		var userInfo = {"username": user, "hate": hate};
+		// send data to the updateHates.php to update list of hates
 	  	$("#feedBackArea").empty();
 		$.post( 
 			"updateHates.php",

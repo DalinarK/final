@@ -6,9 +6,8 @@
 	$hatred = NULL;
 
 	$test = array();
-	$user =  "ken"; //$_POST["username"];
-	//echo $user
-
+	$user =  $_POST["username"];
+	$hate = $_POST["hate"];
 
 
 	// get current hates

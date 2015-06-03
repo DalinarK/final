@@ -18,7 +18,14 @@
 
 <script>
     var userData;
-    var count = 0
+    var count = 0;
+
+    //this array will hold the usernames of disliked persons as well as holding the username of the current user at position [0]. 
+    var usernames = [];
+    $( document ).ready(function() {
+    var sessionUser = usernames['0'] = $("#userID").val();
+
+    });
   
 	$.post( 
 		"users.php",
@@ -39,13 +46,17 @@
                         $('#tinderslide .panel'+count+' .quote').css("font-size", "75%");
                         $('#tinderslide .panel'+count+' .name').append(userData[count].name + "<br>");
                         $('#tinderslide .panel'+count+' .quote').append('"'+userData[count].quote + '"<br>');
+                        
+                        usernames[count+1]=userData[count].username;
                         count += 1;
                         
 					}
-                    
+                    $( document ).ready(function() {
                     go();        
                     transform();
-                    mainTind();
+                    mainTind(usernames);
+                    });
+
 			}
 			else
 			{
@@ -79,7 +90,9 @@
         <a href="" class="like"><i></i></a>
     </div>
     <div id = "feedBackArea">This is the feedback area</div>
-    <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></div>
+    <!-- Hold values that need to be passed from php to javascript  -->
+    <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></input>
+    <input type = "text" id = "pictureID" value = ""></input>
 
     <!-- jTinder status text  -->
     <div id="status"></div>

@@ -10,7 +10,8 @@
 		$street = filter_var($_POST["street"]);
 		$city = filter_var($_POST["city"]);
 		$motto = filter_var($_POST["motto"]);
-
+		$picture = filter_var($_POST["picture"]);
+		$hate = "[]";
 
 
 		$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
@@ -22,20 +23,21 @@
 				//echo "Successfully connected to database <br>";
 			}
 
-			if (!($stmt2 = $mysqli2->prepare("INSERT INTO hatr(Username, Password, Name, StreetNum, Street, City, Quote) VALUES (?,?,?,?,?,?,?)"))) 
+			if (!($stmt2 = $mysqli2->prepare("INSERT INTO hatr(Username, Password, Name, StreetNum, Street, City, Quote, picture, Hatred) VALUES (?,?,?,?,?,?,?,?,?)"))) 
 				//500,"  $_GET['videoName'] "," $_GET['category'] ", " $_GET['length'] "," 0 ")"))) 
 			{
 			    echo "Prepare failed: (" . $mysqli2->errno . ") " . $mysqli2->error;
 			}
 
-			if (!$stmt2->bind_param("sssisss", $username, $password, $name, $streetNumber, $street, $city, $motto)) {
+			if (!$stmt2->bind_param("sssisssss", $username, $password, $name, $streetNumber, $street, $city, $motto, $picture, $hate)) {
 			    echo "Binding parameters failed: (" . $stmt2->errno . ") " . $stmt2->error;
 			}
 
 			if (!$stmt2->execute()) {
 				if ($stmt2->errno == 1062)
 				{
-					echo ("Human, there is already an existing user of that name.");
+					$status = array( "valStatus" => "0");
+					echo (json_encode($status));
 				}
 				else
 				{

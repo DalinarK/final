@@ -20,6 +20,7 @@
 	    Street Name: <input type="text" name="streetName"  id = "userStreet" value = "evergreen" /><br />
 	    City: <input type="text" name="city"  id = "userCity" value = "Springfield" /><br />
 	    Personal Motto: <input type="text" name="motto"  id = "userMotto" value ="yolo" /><br />
+	    Picture URL: <input type="text" name="picture"  id = "picture" value ="http://i.imgur.com/26PkJjn.gif" /><br />
 	    <input type="button" value = "Create a new account!" id ="submit"/>
 	</form>
 
@@ -40,16 +41,17 @@
 			var street = $("#userStreet").val();
 			var city = $("#userCity").val();
 			var motto = $("#userMotto").val();
+			var picture = $("#picture").val();
 
 			//make sure all forms filled out
 			if (user == "" || pass == "" || num == "" || 
-				street == "" || city == "" || motto == ""){
+				street == "" || city == "" || motto == "" || picture == ""){
 				alert('Human, all entries must be entered');
 			}
 			else
 			{
 				//send request to server
-				var userInfo = {"username": user, "password": pass, "name": name, "streetNumber": num, "street": street, "city": city, "motto": motto };
+				var userInfo = {"username": user, "password": pass, "name": name, "streetNumber": num, "street": street, "city": city, "motto": motto, "picture": picture };
 
 
 				$.post( 
@@ -63,9 +65,13 @@
 							$("#feedBackArea").html("passed auth!");
 							window.location = 'main.php';
 					}
-					else
+					else if (temp.valStatus == 0)
 					{	
-						$("#ack").html (info);
+						$("#ack").html("Human, there that username already exists! Pick another");
+					}
+					else
+					{
+						$("#ack").html ("info");
 					}
 				}
 			);
