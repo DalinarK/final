@@ -19,7 +19,7 @@ function mainTind(usernames) {
 
 	
 	    var hate = usernames[slideNum];
-	    console.log(hate);
+	    console.log("this is the person that's being hated on:" + hate);
 	    slideNum -= 1;
 
 
@@ -29,6 +29,8 @@ function mainTind(usernames) {
 	    var count = 0
 
 	    var user = usernames['0'];
+
+	    console.log("this is the user: " + user);
 
 		var userInfo = {"username": user, "hate": hate};
 		// send data to the updateHates.php to update list of hates
