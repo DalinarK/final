@@ -39,13 +39,13 @@
 					{
                         
                         console.log();
-                        $("#displayarea").append(   '<li class="panel'+i+'"><div class="img"></div><div class = "name"></div><div class = "quote"></div><div class="like"></div><div class="dislike"></div></li>'
+                        $("#displayarea").append(   '<li class="'+userData[count].username+'"><div class="img"></div><div class = "name"></div><div class = "quote"></div><div class="like"></div><div class="dislike"></div></li>'
                         );
-                        $('#tinderslide .panel'+count+' .img').css("background", 'url("'+userData[count].picture+'") no-repeat scroll center center');
-                        $('#tinderslide .panel'+count+' .img').css("background-size", "auto 95%");
-                        $('#tinderslide .panel'+count+' .quote').css("font-size", "75%");
-                        $('#tinderslide .panel'+count+' .name').append(userData[count].name + "<br>");
-                        $('#tinderslide .panel'+count+' .quote').append('"'+userData[count].quote + '"<br>');
+                        $('#tinderslide .'+userData[count].username+' .img').css("background", 'url("'+userData[count].picture+'") no-repeat scroll center center');
+                        $('#tinderslide .'+userData[count].username+' .img').css("background-size", "auto 95%");
+                        $('#tinderslide .'+userData[count].username+' .quote').css("font-size", "75%");
+                        $('#tinderslide .'+userData[count].username+' .name').append(userData[count].name + "<br>");
+                        $('#tinderslide .'+userData[count].username+' .quote').append('"'+userData[count].quote + '"<br>');
                         
                         usernames[count+1]=userData[count].username;
                         count += 1;

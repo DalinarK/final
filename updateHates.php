@@ -170,7 +170,7 @@
 				$foundMatch = 1;
 				//echo ("hated!");
 				//$status = array("1", $StreetNum, $Street, $City); //array("valStatus" => "1");
-				$status = array("match" => "1"); //, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City); //array("valStatus" => "1");
+				$status = array("match" => "1", "hate" => $hate, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City); //array("valStatus" => "1");
 
 				
 				//$status = array ("valStatus" => 1, "streetNum" , "street" => $

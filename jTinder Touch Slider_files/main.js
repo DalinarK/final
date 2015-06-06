@@ -49,7 +49,10 @@ function mainTind(usernames) {
 					$("#feedBackArea").html(info);	
 					if (sfas.match == "1")
 					{
-						alert('found hated');
+						$( ".Shia" ).clone().appendTo( "#feedBackArea" );
+						// console.log(sfas.Street);
+						// console.log(sfas.StreetNum);
+						// console.log(sfas.City)
 						
 					}
 				}
