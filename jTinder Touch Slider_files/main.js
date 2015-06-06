@@ -21,10 +21,6 @@ function mainTind(usernames) {
 	    var hate = usernames[slideNum];
 	    console.log("this is the person that's being hated on:" + hate);
 	    slideNum -= 1;
-
-
-	   // $('#userLog').html('Like image ' + (item.index()+1));
-
 	    var userData;
 	    var count = 0
 
@@ -59,18 +55,16 @@ function mainTind(usernames) {
 					{
 						$("#hateArea").append(val[x] + ", ");
 					}
-
 	
-	
-						
-					
 					
 					$("#feedBackArea").html(info);	
 					if (sfas.match == "1")
 					{
+
+						var curUser = {"username": $("#userID").val()};
 						$.post( 
 						"users.php",
-						"",
+						curUser,
 						function(info, userData){
 							userData = $.parseJSON(info);
 
