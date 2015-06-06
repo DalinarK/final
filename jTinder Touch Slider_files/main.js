@@ -39,13 +39,18 @@ function mainTind(usernames) {
 			"updateHates.php",
 			userInfo,
 			function(info){
-
+				
 				if (info != null)
-				{			
-					if (info == "1")
+				{	
+
+					var sfas = $.parseJSON(info);
+					console.log(info);
+					
+					$("#feedBackArea").html(info);	
+					if (sfas.match == "1")
 					{
 						alert('found hated');
-						//$("#feedBackArea").html(info);
+						
 					}
 				}
 				// if (temp.valStatus == 1)

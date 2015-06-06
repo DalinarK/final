@@ -11,6 +11,10 @@
 	$user =  $_POST["username"];
 	$hate = $_POST["hate"];
 
+	$streetNum = NULL;
+	$street = NULL;
+	$city = NULL;
+
 //	echo ("user: " . $user . "<br>");
 //	echo ("Hated on: " . $hate . "<br>");
 
@@ -123,7 +127,7 @@
 		//echo "Successfully connected to database <br>";
 	}
 
-	if (!($stmt = $mysqli->prepare("SELECT Hatred FROM hatr WHERE username = ?"))) {
+	if (!($stmt = $mysqli->prepare("SELECT Hatred, StreetNum, Street, City FROM hatr WHERE username = ?"))) {
 	    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
 	else
@@ -132,13 +136,14 @@
 	}
 
 	// Bind the input parameters to the prepared statement
-	$stmt->bind_param('s', $hate); 
+	$stmt->bind_param('s', $hate);
+
 
 	if (!$stmt->execute()) {
 	    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
 
-	if (!$stmt->bind_result($hatersHatesJSON)) {
+	if (!$stmt->bind_result($hatersHatesJSON, $StreetNum, $Street, $City)) {
 	    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
 	else
@@ -151,31 +156,42 @@
 //			echo ("<br>" . $hatersHatesJSON);
 		}
 			
-		$subjectsArray = json_decode($hatersHatesJSON);	
+		//$subjectsArray = json_decode($hatersHatesJSON);	
 
 	}
+	//echo ($Street);
+	$foundMatch = 0;
+	
 
-	$echoNeg;
-
-	for ($i = 0; $i < count($subjectsArray); $i++)
+	for ($i = 0; $i < count($hatedHatesArray); $i++)
 		{
-			if ($subjectsArray[$i] == $user)
+			if ($hatedHatesArray[$i] == $user)
 			{
+				$foundMatch = 1;
 				//echo ("hated!");
-				$status = "1"; //array("valStatus" => "1");
-				echo($status);
+				//$status = array("1", $StreetNum, $Street, $City); //array("valStatus" => "1");
+				$status = array("match" => "1"); //, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City); //array("valStatus" => "1");
+
+				
+				//$status = array ("valStatus" => 1, "streetNum" , "street" => $
+				echo(json_encode($status));
 				//echo (json_encode($status));
 			}
 			else
-			{
-					$status = "0"; array("valStatus" => "0");
-					echo($status);
-					echo (json_encode($status));
+			{		
+					
+
+					//echo (json_encode($status));
 			}
 
 
 		}
 
+		if ($foundMatch == 0)
+		{
+					$status = array("match" => "0"); //array("valStatus" => "0");
+					echo(json_encode($status));
+		}
 
 
 	
