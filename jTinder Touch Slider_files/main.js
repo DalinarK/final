@@ -12,7 +12,50 @@ function mainTind(usernames) {
 		// dislike callback
 	    onDislike: function (item) {
 		    // set the status text
+
+		    var user = usernames['0'];
+		    var hate = usernames[slideNum];
+		    var userInfo = {"username": user, "hate": hate};
 		    slideNum -= 1;
+
+		    		$.post( 
+			"updateHates.php",
+			userInfo,
+			function(info){
+				
+				if (info != null)
+				{	
+
+					var sfas = $.parseJSON(info);
+					console.log(info);
+					console.log("Your hates: " + sfas.hatelist);
+					
+
+					var val = sfas.hatelist;
+					var x;
+					$("#hateArea").empty();
+					$("#hateArea").append("These are your current overwhelming hatreds: ");
+					
+		
+					for (x in val)
+					{
+						$("#hateArea").append(val[x] + ", ");
+					}
+						
+				}
+				// if (temp.valStatus == 1)
+				// {
+				// 	console.log("match!");
+					
+				// 	//$("#feedBackArea").html(feedback.valstatus);
+				// }
+				// else
+				// {
+
+				// 	$("#feedBackArea").html("failed auth!");
+				// }									
+			}
+		);
 	    },
 		// like callback
 	    onLike: function (item) {
