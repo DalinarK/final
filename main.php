@@ -64,6 +64,9 @@
             }                                   
         }
     );
+    
+    //hides the area from the user where I pass variables from php to JS
+    $("#userID").hide();
 
 
     });
@@ -97,7 +100,6 @@
     <div id = "feedBackArea">This is the feedback area</div>
     <!-- Hold values that need to be passed from php to javascript  -->
     <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></input>
-    <input type = "text" id = "pictureID" value = ""></input>
 
 
     <!-- jTinder status text  -->
