@@ -7,6 +7,9 @@
 	$picture = NULL;
 	$username = NULL;
 
+	$excludeName = filter_var($_POST["username"]);
+
+
 	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
 	if ($mysqli->connect_errno) {
 	    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -17,12 +20,17 @@
 	}
 
 
-	if (!($stmt = $mysqli->prepare("SELECT Name, Quote, Picture, Username FROM hatr"))) {
+	if (!($stmt = $mysqli->prepare("SELECT Name, Quote, Picture, Username FROM hatr where Username != ?"))) {
 	    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
 	else
 	{
 		//echo "Assigned mysqli object to stmt object <br>";
+	}
+
+
+	if (!$stmt->bind_param("s", $excludeName)) {
+	    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
 
 	if (!$stmt->execute()) {

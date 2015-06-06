@@ -25,45 +25,49 @@
     $( document ).ready(function() {
     var sessionUser = usernames['0'] = $("#userID").val();
 
-    });
-  
-	$.post( 
-		"users.php",
-		"",
-		function(info, userData){
-			userData = $.parseJSON(info);
-			//$("#feedBackArea").empty();
-			if (userData != null)
-			{
-				  for(var i = 0 ; i < userData.length; i++) 
-					{
-                        
-                        console.log();
-                        $("#displayarea").append(   '<li class="'+userData[count].username+'"><div class="img"></div><div class = "name"></div><div class = "quote"></div><div class="like"></div><div class="dislike"></div></li>'
-                        );
-                        $('#tinderslide .'+userData[count].username+' .img').css("background", 'url("'+userData[count].picture+'") no-repeat scroll center center');
-                        $('#tinderslide .'+userData[count].username+' .img').css("background-size", "auto 95%");
-                        $('#tinderslide .'+userData[count].username+' .quote').css("font-size", "75%");
-                        $('#tinderslide .'+userData[count].username+' .name').append(userData[count].name + "<br>");
-                        $('#tinderslide .'+userData[count].username+' .quote').append('"'+userData[count].quote + '"<br>');
-                        
-                        usernames[count+1]=userData[count].username;
-                        count += 1;
-                        
-					}
+    var curUser = {"username": $("#userID").val()};
+
+        $.post( 
+        "users.php",
+        curUser,
+        function(info, userData){
+            userData = $.parseJSON(info);
+            //$("#feedBackArea").empty();
+            if (userData != null)
+            {
+
+                console.log(info);
+                  for(var i = 0 ; i < userData.length; i++) 
+                    {
+
+                            $("#displayarea").append(   '<li class="'+userData[count].username+'"><div class="img"></div><div class = "name"></div><div class = "quote"></div><div class="like"></div><div class="dislike"></div></li>'
+                            );
+                            $('#tinderslide .'+userData[count].username+' .img').css("background", 'url("'+userData[count].picture+'") no-repeat scroll center center');
+                            $('#tinderslide .'+userData[count].username+' .img').css("background-size", "auto 95%");
+                            $('#tinderslide .'+userData[count].username+' .quote').css("font-size", "75%");
+                            $('#tinderslide .'+userData[count].username+' .name').append(userData[count].name + "<br>");
+                            $('#tinderslide .'+userData[count].username+' .quote').append('"'+userData[count].quote + '"<br>');
+                            
+                            usernames[count+1]=userData[count].username;
+                            count += 1;
+                    }
                     $( document ).ready(function() {
                     go();        
                     transform();
                     mainTind(usernames);
                     });
 
-			}
-			else
-			{
-				$("#feedBackArea").html("failed auth!");
-			}									
-		}
-	);
+            }
+            else
+            {
+                $("#feedBackArea").html("failed auth!");
+            }                                   
+        }
+    );
+
+
+    });
+  
 
 </script>
 
@@ -89,14 +93,16 @@
         <a href="" class="dislike"><i></i></a>
         <a href="" class="like"><i></i></a>
     </div>
+    <div id = "hateArea"> These are your current overwhelming hatreds: </div>
     <div id = "feedBackArea">This is the feedback area</div>
     <!-- Hold values that need to be passed from php to javascript  -->
     <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></input>
     <input type = "text" id = "pictureID" value = ""></input>
 
+
     <!-- jTinder status text  -->
     <div id="status"></div>
-    
+
 
     <!-- jQuery lib -->
     

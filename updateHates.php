@@ -170,7 +170,7 @@
 				$foundMatch = 1;
 				//echo ("hated!");
 				//$status = array("1", $StreetNum, $Street, $City); //array("valStatus" => "1");
-				$status = array("match" => "1", "hate" => $hate, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City); //array("valStatus" => "1");
+				$status = array("match" => "1", "hate" => $hate, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City, "hatelist" => $hatredArray); //array("valStatus" => "1");
 
 				
 				//$status = array ("valStatus" => 1, "streetNum" , "street" => $
@@ -187,9 +187,9 @@
 
 		}
 
-		if ($foundMatch == 0)
+		if ($foundMatch != 1)
 		{
-					$status = array("match" => "0"); //array("valStatus" => "0");
+					$status = array("match" => "0", "hatelist" => $hatredArray); //array("valStatus" => "0");
 					echo(json_encode($status));
 		}
 

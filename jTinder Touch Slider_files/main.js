@@ -33,6 +33,7 @@ function mainTind(usernames) {
 	    console.log("this is the user: " + user);
 
 		var userInfo = {"username": user, "hate": hate};
+
 		// send data to the updateHates.php to update list of hates
 	  	$("#feedBackArea").empty();
 		$.post( 
@@ -45,15 +46,55 @@ function mainTind(usernames) {
 
 					var sfas = $.parseJSON(info);
 					console.log(info);
+					console.log("Your hates: " + sfas.hatelist);
+					
+
+					var val = sfas.hatelist;
+					var x;
+					$("#hateArea").empty();
+					$("#hateArea").append("These are your current overwhelming hatreds: ");
+					
+		
+					for (x in val)
+					{
+						$("#hateArea").append(val[x] + ", ");
+					}
+
+	
+	
+						
+					
 					
 					$("#feedBackArea").html(info);	
 					if (sfas.match == "1")
 					{
-						$( ".Shia" ).clone().appendTo( "#feedBackArea" );
-						// console.log(sfas.Street);
-						// console.log(sfas.StreetNum);
-						// console.log(sfas.City)
+						$.post( 
+						"users.php",
+						"",
+						function(info, userData){
+							userData = $.parseJSON(info);
+
+							if (userData != null)
+							{
+								for(var i = 0 ; i < userData.length; i++) 
+								{
+				                        
+			                        if (userData[count].username == sfas.hate)
+			                        {
+			                        	$("body").empty();
+			                        	$("body").append("<h1> Human, you have found someone who detests your very existence as you they </h1> <br> To facilitate your mutual hatred, we have provided you with their address. It is: " + sfas.StreetNum + " " + sfas.Street + " " + sfas.City + ".");
+			                        	$("body").append( '<form id = "myForm" > <input type="submit" value = "Go Back" id ="submit"/></form>');
+	
+			                        }
+		                					 count += 1;
+								}
+
+								
+								
+
+							}									
 						
+						});
 					}
 				}
 				// if (temp.valStatus == 1)
