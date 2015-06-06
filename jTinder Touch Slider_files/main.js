@@ -39,16 +39,26 @@ function mainTind(usernames) {
 			"updateHates.php",
 			userInfo,
 			function(info){
-				//userData = $.parseJSON(info);
-				if (info != null)
-				{
-					$("#feedBackArea").html(info);
-				}
-				else
-				{
 
-					$("#feedBackArea").html("failed auth!");
-				}									
+				if (info != null)
+				{			
+					if (info == "1")
+					{
+						alert('found hated');
+						//$("#feedBackArea").html(info);
+					}
+				}
+				// if (temp.valStatus == 1)
+				// {
+				// 	console.log("match!");
+					
+				// 	//$("#feedBackArea").html(feedback.valstatus);
+				// }
+				// else
+				// {
+
+				// 	$("#feedBackArea").html("failed auth!");
+				// }									
 			}
 		);
 
