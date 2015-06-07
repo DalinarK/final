@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8" />
 <title>Create new account!</title>
 </head>
@@ -16,7 +19,7 @@
 	    UserName:  <input type="text" name="username" id = "userInput" value ="Spongebob" /><br />
 	    Password: <input type="password" name="password" id = "userPass" value = "pass" /><br />
 	    Name: <input type="text" name="name" id = "name" value ="chad" /><br />
-	    Street Number: <input type="number" name="streetNumber"  id = "userNum" value = "323" /><br />
+	    Street Number: <input type="text" name="streetNumber"  id = "userNum" value = "323" /><br />
 	    Street Name: <input type="text" name="streetName"  id = "userStreet" value = "evergreen" /><br />
 	    City: <input type="text" name="city"  id = "userCity" value = "Springfield" /><br />
 	    Personal Motto: <input type="text" name="motto"  id = "userMotto" value ="yolo" /><br />
@@ -44,7 +47,7 @@
 			var picture = $("#picture").val();
 
 			//make sure all forms filled out
-			if (!isNaN(num))
+			if (isNaN(num))
 			{
 				alert('Human, the street address must consist of numbers!');
 				

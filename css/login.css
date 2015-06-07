@@ -1,0 +1,62 @@
+.pns_lightbox_container_border {
+  border-radius: initial;
+  padding: 6px;
+}
+
+.pns_lightbox_close {
+  top: 10px !important;
+  right: 5px !important;
+  font-size: 20px !important;
+}
+
+.pns_lightbox_close .close-x {
+  -webkit-filter: invert(60%);
+  filter: invert(60%);
+  height: 25px;
+}
+
+.pns_lightbox_close .close-x:hover {
+  top: -1px; 
+}
+
+.pns_lightbox_container {
+  background-color: #f7f9f9 !important;
+}
+
+.pns_lightbox_container_border {
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+
+iframe.pns_important-dim-empty#launchpad_iframe {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+
+iframe.pns_important-dim-full#launchpad_iframe {
+  width: 300px !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* default iframe css */
+iframe#launchpad_iframe {
+  height: 0;
+  display: none;
+  width: 0;
+  position: fixed;
+  top: 0px;
+  right: -2px;
+  border: none;
+  background-color: #f7f9f9;
+  overflow:hidden;
+  z-index: 2147483639;
+  clip: auto;
+  box-shadow: rgb(181, 181, 181) 1px 0px 3px 3px;
+}
+
+body {
+  background-color: #fff0d6;
+}
