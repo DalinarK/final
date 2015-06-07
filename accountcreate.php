@@ -9,27 +9,37 @@
 <meta charset="utf-8" />
 <title>Create new account!</title>
 </head>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
+	    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 
 <body>
-<h1>Create new account!</h1>
-<section>		
-	<form id = "myForm" >
-		<legend>Create a new accoun</legend>
-	    UserName:  <input type="text" name="username" id = "userInput" value ="Spongebob" /><br />
-	    Password: <input type="password" name="password" id = "userPass" value = "pass" /><br />
-	    Name: <input type="text" name="name" id = "name" value ="chad" /><br />
-	    Street Number: <input type="text" name="streetNumber"  id = "userNum" value = "323" /><br />
-	    Street Name: <input type="text" name="streetName"  id = "userStreet" value = "evergreen" /><br />
-	    City: <input type="text" name="city"  id = "userCity" value = "Springfield" /><br />
-	    Personal Motto: <input type="text" name="motto"  id = "userMotto" value ="yolo" /><br />
-	    Picture URL: <input type="text" name="picture"  id = "picture" value ="http://i.imgur.com/26PkJjn.gif" /><br />
-	    <input type="button" value = "Create a new account!" id ="submit"/>
-	</form>
 
-</section>
+<div class="container">
+	<section>		
+		<form class="form-signin">
+		<h2>Create new account!</h2>
+			
+		<form id = "myForm" class="form-signin">
+			
+		    <input type="text" class="form-control" name="username" id = "userInput" placeholder = "UserName" >
+		    <input type="password" class="form-control" name="password" id = "userPass" placeholder = "Password" >
+		    <input type="text" class="form-control" name="name" id = "name" placeholder = "Name" >
+		    <input type="text" class="form-control" name="streetNumber"  id = "userNum" placeholder = "Street Number" >
+		    <input type="text" class="form-control" name="streetName"  id = "userStreet" placeholder = "Street Name" >
+		    <input type="text" class="form-control" name="city"  id = "userCity" placeholder = "City" >
+		    <input type="text" class="form-control" name="motto"  id = "userMotto" placeholder = "Personal Motto" >
+		    <input type="text" class="form-control" name="picture"  id = "picture" placeholder = "Selfie URL" /><br />
+		    <input type="button" class="btn btn-lg btn-primary btn-block" value = "Create a new account!" id ="submit"/>
+		</form>
 
-<div id="ack"></div>
+	</section>
+
+	<div id="ack" class="form-signin"></div>
+</div>
+</body>
 
 <script src="jquery-1.11.3.min.js"></script>
 
@@ -87,19 +97,13 @@
 				
 			}
 
-
-			
-
-
-
-
-
-
 		});
 
 </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
 
-
-</body>
 </html>
