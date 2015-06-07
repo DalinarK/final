@@ -35,7 +35,7 @@
     	<input type="submit" name = "Login" value = "Create an account" class="btn btn-sm btn-block"/>
 	</form>
 
-	<div id = "feedBackArea"></div>
+	<div class="form-signin" id = "feedBackArea"></div>
 
 </section>
 
@@ -64,12 +64,14 @@
 						$("#feedBackArea").empty();
 						if (temp.valStatus == 1)
 						{
-							$("#feedBackArea").html("passed auth!");
+							//$("#feedBackArea").html("passed auth!");
 							window.location = 'main.php';
 						}
 						else
 						{
-							$("#feedBackArea").html("failed auth!");
+							$("#feedBackArea").html("Human, the username or password was incorrect!");
+
+							$("#feedBackArea").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 						}
 						 
 						

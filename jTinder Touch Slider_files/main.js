@@ -109,7 +109,7 @@ function mainTind(usernames) {
 			                        {
 			                        	$("body").empty();
 			                        	$("body").append('<h3 class = "container text-center"> Human, you have found someone who detests your very existence as you they </h3> <br> <h3 class = "container text-center"> To facilitate your mutual hatred, their address is: ' + sfas.StreetNum + ' ' + sfas.Street + ' ' + sfas.City + '. </h3>');
-			                        	$("body").append( '<form class = "container text-center btn btn-sm btn-block" id = "myForm" > <input type="submit" value = "I want to find more people to hate" id ="submit"/></form>');
+			                        	$("body").append( '<form class = "container form-signin text-center " id = "myForm" > <input type="submit" class = "btn btn-lg btn-primary btn-block" value = "I want to find more people to hate"/> </form>');
 	
 			                        }
 		                					 count += 1;

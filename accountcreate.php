@@ -20,7 +20,6 @@
 <div class="container">
 	<section>		
 		<form class="form-signin">
-		<h2>Create new account!</h2>
 			
 		<form id = "myForm" class="form-signin">
 			
