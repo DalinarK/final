@@ -44,8 +44,14 @@
 			var picture = $("#picture").val();
 
 			//make sure all forms filled out
-			if (user == "" || pass == "" || num == "" || 
-				street == "" || city == "" || motto == "" || picture == ""){
+			if (!isNaN(num))
+			{
+				alert('Human, the street address must consist of numbers!');
+				
+			}
+			else if (user == "" || pass == "" || num == "" || 
+				street == "" || city == "" || motto == "" || picture == "")
+			{
 				alert('Human, all entries must be entered');
 			}
 			else
