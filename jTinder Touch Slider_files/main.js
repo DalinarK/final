@@ -34,7 +34,7 @@ function mainTind(usernames) {
 					var val = sfas.hatelist;
 					var x;
 					$("#hateArea").empty();
-					$("#hateArea").append("These are your current overwhelming hatreds: ");
+					$("#hateArea").append("You currently despise: ");
 					
 		
 					for (x in val)
@@ -43,17 +43,7 @@ function mainTind(usernames) {
 					}
 						
 				}
-				// if (temp.valStatus == 1)
-				// {
-				// 	console.log("match!");
-					
-				// 	//$("#feedBackArea").html(feedback.valstatus);
-				// }
-				// else
-				// {
-
-				// 	$("#feedBackArea").html("failed auth!");
-				// }									
+							
 			}
 		);
 	    },
@@ -91,16 +81,15 @@ function mainTind(usernames) {
 					var val = sfas.hatelist;
 					var x;
 					$("#hateArea").empty();
-					$("#hateArea").append("These are your current overwhelming hatreds: ");
+					$("#hateArea").append("You currently despise: ");
 					
 		
 					for (x in val)
 					{
 						$("#hateArea").append(val[x] + ", ");
 					}
-	
 					
-					$("#feedBackArea").html(info);	
+					//prints out all the people user hates so far
 					if (sfas.match == "1")
 					{
 
@@ -119,15 +108,12 @@ function mainTind(usernames) {
 			                        if (userData[count].username == sfas.hate)
 			                        {
 			                        	$("body").empty();
-			                        	$("body").append("<h1> Human, you have found someone who detests your very existence as you they </h1> <br> To facilitate your mutual hatred, we have provided you with their address. It is: " + sfas.StreetNum + " " + sfas.Street + " " + sfas.City + ".");
-			                        	$("body").append( '<form id = "myForm" > <input type="submit" value = "Go Back" id ="submit"/></form>');
+			                        	$("body").append('<h3 class = "container text-center"> Human, you have found someone who detests your very existence as you they </h3> <br> <h3 class = "container text-center"> To facilitate your mutual hatred, their address is: ' + sfas.StreetNum + ' ' + sfas.Street + ' ' + sfas.City + '. </h3>');
+			                        	$("body").append( '<form class = "container text-center btn btn-sm btn-block" id = "myForm" > <input type="submit" value = "I want to find more people to hate" id ="submit"/></form>');
 	
 			                        }
 		                					 count += 1;
 								}
-
-								
-								
 
 							}									
 						

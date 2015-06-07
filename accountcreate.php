@@ -31,7 +31,7 @@
 		    <input type="text" class="form-control" name="streetName"  id = "userStreet" placeholder = "Street Name" >
 		    <input type="text" class="form-control" name="city"  id = "userCity" placeholder = "City" >
 		    <input type="text" class="form-control" name="motto"  id = "userMotto" placeholder = "Personal Motto" >
-		    <input type="text" class="form-control" name="picture"  id = "picture" placeholder = "Selfie URL" /><br />
+		    <input type="url" class="form-control" name="picture"  id = "picture" placeholder = "Selfie URL" /><br />
 		    <input type="button" class="btn btn-lg btn-primary btn-block" value = "Create a new account!" id ="submit"/>
 		</form>
 

@@ -3,14 +3,20 @@
 
 <!DOCTYPE html>
 <!-- saved from url=(0022)http://x5c.de/jtinder/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exp</title>
     <link rel="stylesheet" type="text/css" href="./jTinder Touch Slider_files/jTinder.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
+
 
 <script src="jquery-1.11.3.min.js"></script>
 
@@ -23,6 +29,8 @@
     //this array will hold the usernames of disliked persons as well as holding the username of the current user at position [0]. 
     var usernames = [];
     $( document ).ready(function() {
+
+    //uses session to keep track of the user after they sign in
     var sessionUser = usernames['0'] = $("#userID").val();
 
     var curUser = {"username": $("#userID").val()};
@@ -33,6 +41,8 @@
         function(info, userData){
             userData = $.parseJSON(info);
             //$("#feedBackArea").empty();
+
+            //display all the members on the website
             if (userData != null)
             {
 
@@ -73,16 +83,16 @@
   
 
 </script>
-
-    <h2 class = "titles" id = "userLog"> Hatr: </h2>
-    <h3 class = "titles" >Connecting people who have an irrational hatred of each other</h3>
-
+<div class="container">
+    <h2 class = "titles text-center" id = "userLog"> HATR: </h2>
+    <h3 class = "titles text-center" >Connecting people who have an irrational hatred of each other</h3>
+</div>
 
     <!-- start padding container -->
-    <div class="wrap">
+    <div class="wrap container">
         <!-- start jtinder container -->
         <div id="tinderslide">
-            <ul id= "displayarea">
+            <ul id= "displayarea" style ="background: #fff0d6">
 
             
             </ul>
@@ -96,14 +106,17 @@
         <a href="" class="dislike"><i></i></a>
         <a href="" class="like"><i></i></a>
     </div>
-    <div id = "hateArea"> These are your current overwhelming hatreds: </div>
-    <div id = "feedBackArea">This is the feedback area</div>
+
+<div class="container text-center">   
+    <div id = "hateArea" style = "font-size: 150%"></div>
+    <div id = "feedBackArea"></div>
     <!-- Hold values that need to be passed from php to javascript  -->
     <input type = "text" id = "userID" value = <?php echo ($_SESSION['username'])?>></input>
 
 
     <!-- jTinder status text  -->
     <div id="status"></div>
+</div>
 
 
     <!-- jQuery lib -->

@@ -61,5 +61,10 @@ body {
   background-color: #fff0d6;
 }
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(KaushanScript-Regular.otf);
+}
 
 h2 { color: #bf0b1d; font-family: myFirstFont; font-style: oblique;  text-shadow: 5px 5px 5px #CCCCCC; font-size: 450%; letter-spacing: 7px;}
+h3 { font-style: oblique;}
