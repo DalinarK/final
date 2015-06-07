@@ -55,8 +55,10 @@
                             $('#tinderslide .'+userData[count].username+' .img').css("background", 'url("'+userData[count].picture+'") no-repeat scroll center center');
                             $('#tinderslide .'+userData[count].username+' .img').css("background-size", "auto 95%");
                             $('#tinderslide .'+userData[count].username+' .quote').css("font-size", "75%");
-                            $('#tinderslide .'+userData[count].username+' .name').append(userData[count].name + "<br>");
+                            $('#tinderslide .'+userData[count].username+' .name').append("<div class = 'container'>");
+                            $('#tinderslide .'+userData[count].username+' .name').append(userData[count].username + "<br>");
                             $('#tinderslide .'+userData[count].username+' .quote').append('"'+userData[count].quote + '"<br>');
+                            $('#tinderslide .'+userData[count].username+' .name').append("</div>");
                             
                             usernames[count+1]=userData[count].username;
                             count += 1;

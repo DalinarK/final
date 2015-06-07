@@ -7,12 +7,49 @@ function mainTind(usernames) {
 	//used to keep track of what user is being liked or disliked in the array that usernames array
 	var slideNum = usernames.length -1;
 	var val;
+	//the user that's hating.
+	var user;
+	//the user that's being hated.
+	var hate;
+	//the object that holds the user and hate to be passed to php
+	var userInfo;
 
 	$("#tinderslide").jTinder({
 		// dislike callback
 	    onDislike: function (item) {
 		    // set the status text
+		    hate = usernames[slideNum];
 		    slideNum -= 1;
+		   	user = usernames['0'];
+
+		   	userInfo = {"username": user, "hate": hate};
+
+		   	$.post( 
+			"getHatrs.php",
+			userInfo,
+			function(info){
+				
+				if (info != null)
+				{	
+
+					var sfas = $.parseJSON(info);
+					console.log(info);
+					console.log("Your hates: " + sfas.hatelist);
+					
+					var x;
+					$("#hateArea").empty();
+					$("#hateArea").append("You currently despise: ");
+					
+		
+					for (x in sfas)
+					{
+						$("#hateArea").append(sfas[x] + ", ");
+					}
+					
+				}								
+			}
+		);
+
 
     		$("#hateArea").empty();
 			$("#hateArea").append("You currently despise: ");
@@ -69,7 +106,6 @@ function mainTind(usernames) {
 					//prints out all the people user hate so far
 					if (sfas.match == "1")
 					{
-
 						var curUser = {"username": $("#userID").val()};
 						$.post( 
 						"users.php",
@@ -81,13 +117,14 @@ function mainTind(usernames) {
 							{
 								for(var i = 0 ; i < userData.length; i++) 
 								{
-				                        
+				                    
 			                        if (userData[count].username == sfas.hate)
 			                        {
 			                        	$("body").empty();
-			                        	$("body").append("<h1> Human, you have found someone who detests your very existence as you they </h1> <br> To facilitate your mutual hatred, we have provided you with their address. It is: " + sfas.StreetNum + " " + sfas.Street + " " + sfas.City + ".");
-			                        	$("body").append( '<form id = "myForm" > <input type="submit" value = "Go Back" id ="submit"/></form>');
-	
+			      
+			                        	$("body").append("<div class = 'container'> <div class = 'col-lg-2'></div> <div class = 'titles text-center  col-lg-8'> <h1 class = ''> Human, you have found someone who detests your very existence as you they </h1> <br> To facilitate your mutual hatred, we have provided you with their address. It is: <br> <h3> " + sfas.StreetNum + " " + sfas.Street + " " + sfas.City + ". </h3> <br> <form id = 'myForm' class = ''> <input type='submit' class = 'btn btn-lg btn-primary btn-block' value = 'Find more people to hate' id ='submit'/></form>" );
+			                        	
+
 			                        }
 		                					 count += 1;
 								}
