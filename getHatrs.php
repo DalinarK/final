@@ -58,19 +58,5 @@
 
 		 $foundExisting = 0;
  
-		for ($i = 0; $i < count($hatredArray); $i++)
-		{
-			if ($hatredArray[$i] == $hate)
-			{
-//				echo("<br> found duplicate entry");
-				$foundExisting = 1;
-			}
-		}
-
-		if ($foundExisting == 0)
-		{
-			array_push($hatredArray, $hate);
-		}
-
 		echo json_encode($hatredArray);	
 	}
