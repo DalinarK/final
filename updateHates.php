@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
 
@@ -15,6 +16,9 @@
 	$street = NULL;
 	$city = NULL;
 
+	$status = NULL;
+
+	$foundMatch = 0;
 //	echo ("user: " . $user . "<br>");
 //	echo ("Hated on: " . $hate . "<br>");
 
@@ -155,46 +159,36 @@
 			
 //			echo ("<br>" . $hatersHatesJSON);
 		}
-			
-		//$subjectsArray = json_decode($hatersHatesJSON);	
+
+		
+	
+
+		for ($i = 0; $i < count($hatedHatesArray); $i++)
+			{
+
+				if ($hatedHatesArray[$i] == $user)
+				{
+					global $foundMatch; 
+					$foundMatch = 1;
+					break;
+					//echo (json_encode($status));
+				}
+			}
+
+		if ($foundMatch != "1")
+		{
+			$noMatch = array("match" => "0", "hatelist" => $hatredArray);
+			echo(json_encode($noMatch));
+		}
+		else
+		{
+			$status = array("match" => "1", "hate" => $hate, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City, "hatelist" => $hatredArray);
+			echo(json_encode($status));
+		}
+					
+				//$subjectsArray = json_decode($hatersHatesJSON);	
 
 	}
-	//echo ($Street);
-	$foundMatch = 0;
-	
-
-	for ($i = 0; $i < count($hatedHatesArray); $i++)
-		{
-			if ($hatedHatesArray[$i] == $user)
-			{
-				$foundMatch = 1;
-				//echo ("hated!");
-				//$status = array("1", $StreetNum, $Street, $City); //array("valStatus" => "1");
-				$status = array("match" => "1", "hate" => $hate, "StreetNum" => $StreetNum, "Street" => $Street, "City" => $City, "hatelist" => $hatredArray); //array("valStatus" => "1");
-
-				
-				//$status = array ("valStatus" => 1, "streetNum" , "street" => $
-				echo(json_encode($status));
-				//echo (json_encode($status));
-			}
-			else
-			{		
-					
-
-					//echo (json_encode($status));
-			}
-
-
-		}
-
-		if ($foundMatch != 1)
-		{
-					$status = array("match" => "0", "hatelist" => $hatredArray); //array("valStatus" => "0");
-					echo(json_encode($status));
-		}
-
-
-	
 
 
    	mysqli_close($mysqli);
