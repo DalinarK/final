@@ -10,7 +10,7 @@
 	$excludeName = filter_var($_POST["username"]);
 
 
-	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
+	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL", "dinhd-db");
 	if ($mysqli->connect_errno) {
 	    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}

@@ -1,7 +1,8 @@
-<?php 
+<?php ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/sessionFix'));
+	session_start();
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
-	session_start();
+
 
 	$returnData = array();
 	$returnData[]  = 'one:dog';
@@ -16,7 +17,7 @@
 
 
 	// Connect to the MySQL server
-	$db = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ" , "dinhd-db");
+	$db = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL" , "dinhd-db");
 
 	// Determine whether an account exists matching this username and password
 	$stmt = $db->prepare("SELECT Name FROM hatr WHERE username = ? and password = ?");

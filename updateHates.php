@@ -1,4 +1,4 @@
-<?php
+<?php ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/sessionFix'));
 	session_start();
 	error_reporting(E_ALL);
 	ini_set('display_errors', 'On');
@@ -24,7 +24,7 @@
 
 
 	// get current hates
-	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
+	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL", "dinhd-db");
 	if ($mysqli->connect_errno) {
 	    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}
@@ -84,7 +84,7 @@
 	//echo ($toDB);
 
 	//update the hate list
-	$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
+	$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL", "dinhd-db");
 	if ($mysqli2->connect_errno) {
 	    echo "Failed to connect to MySQL: (" . $mysqli2->connect_errno . ") " . $mysqli2->connect_error;
 	}
@@ -122,7 +122,7 @@
 
 
 	// check to see if the hated person hates the user back
-	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
+	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL", "dinhd-db");
 	if ($mysqli->connect_errno) {
 	    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}

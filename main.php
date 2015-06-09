@@ -1,4 +1,6 @@
-<?php session_start(); 
+<?php 
+ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/sessionFix'));
+session_start(); 
 ?>
 
 <!DOCTYPE html>
