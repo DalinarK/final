@@ -14,7 +14,7 @@
 		$hate = "[]";
 
 
-		$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "XTJ5gewxEKlbzpgJ", "dinhd-db");
+		$mysqli2 = new mysqli("oniddb.cws.oregonstate.edu", "dinhd-db", "Mekmy0hd8jvLKeBL", "dinhd-db");
 			if ($mysqli2->connect_errno) {
 			    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
